@@ -1,0 +1,36 @@
+{
+  "name": "boxcar-cli",
+  "version": "0.0.1",
+  "description": "boxcar api notification cli tool",
+  "bin": {
+    "boxcar": "./build.js"
+  },
+  "scripts": {
+    "start": "babel cli.js -o build.js",
+    "test": "mocha --recursive test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airtoxin/boxcar-cli.git"
+  },
+  "keywords": [
+    "boxcar",
+    "cli",
+    "api",
+    "notification"
+  ],
+  "author": "airtoxin <airtoxin@icloud.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/airtoxin/boxcar-cli/issues"
+  },
+  "homepage": "https://github.com/airtoxin/boxcar-cli#readme",
+  "dependencies": {
+    "boxcar-notification": "0.0.1",
+    "commander": "^2.9.0",
+    "homeconf": "0.0.4"
+  },
+  "devDependencies": {
+    "babel": "^5.8.29"
+  }
+}
