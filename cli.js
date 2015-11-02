@@ -5,6 +5,7 @@ import program from 'commander';
 import jsonfile from 'jsonfile';
 import pathExt from 'path-extra';
 import assign from 'lodash.assign';
+import getStdin from 'get-stdin';
 import BoxcarNotification from 'boxcar-notification';
 import pkg from './package';
 
@@ -24,41 +25,45 @@ program
     })
     .parse(process.argv);
 
-let argvConf = {};
-if (program.credential) argvConf['credential'] = program.credential;
-if (program.title) argvConf['title'] = program.title;
-if (program.message) argvConf['message'] = program.message;
-if (program.sound) argvConf['sound'] = program.sound;
-if (program.from) argvConf['from'] = program.from;
-if (program.icon) argvConf['icon'] = program.icon;
+getStdin().then((fromStdin) => {
 
-let homeConf, currentConf;
-try {
-    homeConf = jsonfile.readFileSync(path.join(pathExt.homedir(), CONFNAME));
-} catch (e) {
-    homeConf = {};
-}
-try {
-    currentConf = jsonfile.readFileSync(path.join(process.cwd(), CONFNAME));
-} catch (e) {
-    currentConf = {};
-}
+    let argvConf = {};
+    if (program.credential) argvConf['credential'] = program.credential;
+    if (program.title) argvConf['title'] = program.title;
+    if (program.message) argvConf['message'] = program.message;
+    if (program.sound) argvConf['sound'] = program.sound;
+    if (program.from) argvConf['from'] = program.from;
+    if (program.icon) argvConf['icon'] = program.icon;
 
-// merge all configures
-let conf = assign(homeConf, currentConf, argvConf);
+    let homeConf, currentConf;
+    try {
+        homeConf = jsonfile.readFileSync(path.join(pathExt.homedir(), CONFNAME));
+    } catch (e) {
+        homeConf = {};
+    }
+    try {
+        currentConf = jsonfile.readFileSync(path.join(process.cwd(), CONFNAME));
+    } catch (e) {
+        currentConf = {};
+    }
 
-let bn = new BoxcarNotification(conf.credential);
-let notificationSettings = {
-    title: conf.title,
-    longMessage: conf.message,
-    sound: conf.sound,
-    sourceName: conf.from,
-    iconUrl: conf.icon
-};
-bn.send(notificationSettings).then((body) => {
-    if (!program.quiet) console.log(body);
-    process.exit(0)
-}).catch((error) => {
-    console.error(error);
-    process.exit(1);
+    // merge all configures
+    let conf = assign(homeConf, currentConf, argvConf);
+
+    let bn = new BoxcarNotification(conf.credential);
+    let notificationSettings = {
+        title: conf.title,
+        longMessage: fromStdin || conf.message,
+        sound: conf.sound,
+        sourceName: conf.from,
+        iconUrl: conf.icon
+    };
+    bn.send(notificationSettings).then((body) => {
+        if (!program.quiet) console.log(body);
+        process.exit(0)
+    }).catch((error) => {
+        console.error(error);
+        process.exit(1);
+    });
+
 });
