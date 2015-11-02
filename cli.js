@@ -34,6 +34,7 @@ getStdin().then((fromStdin) => {
     if (program.sound) argvConf['sound'] = program.sound;
     if (program.from) argvConf['from'] = program.from;
     if (program.icon) argvConf['icon'] = program.icon;
+    if (program.quiet) argvConf['quiet'] = program.quiet;
 
     let homeConf, currentConf;
     try {
@@ -59,7 +60,7 @@ getStdin().then((fromStdin) => {
         iconUrl: conf.icon
     };
     bn.send(notificationSettings).then((body) => {
-        if (!program.quiet) console.log(body);
+        if (!conf.quiet) console.log(body);
         process.exit(0)
     }).catch((error) => {
         console.error(error);

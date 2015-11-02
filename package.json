@@ -1,6 +1,6 @@
 {
   "name": "boxcar-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "boxcar api notification cli tool",
   "bin": {
     "boxcar": "./build.js"
