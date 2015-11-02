@@ -30,3 +30,23 @@ $ boxcar --help
 
   Sounds: [beep-crisp,beep-soft,bell-modern,bell-one-tone,bell-simple,bell-triple,bird-1,bird-2,boing,cash,clanging,detonator-charge,digital-alarm,done,echo,flourish,harp,light,magic-chime,magic-coin,notifier-1,notifier-2,notifier-3,orchestral-long,orchestral-short,score,success,up]
 ```
+
+## `.boxcarrc`
+
+if you put `.boxcarrc` file in currend directory or home directory, it loaded and uses for default option.
+
++ command line option
++ `./.boxcarrc`
++ `~/.boxcarrc`
+
+those options were flattened into one configuration and earlier one overrides later ones.
+
+example of `.boxcarrc`
+
+```json
+{
+  "credential": "MY_API_TOKEN",
+  "title": "Default title",
+  "message": "Default message"
+}
+```
