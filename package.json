@@ -6,9 +6,9 @@
     "boxcar": "./build.js"
   },
   "scripts": {
-    "start": "babel cli.js -o build.js",
-    "test": "mocha --recursive test/",
-    "prepublish": "npm start"
+    "start": "babel -o build.js cli.js",
+    "test": "npm start && mocha --compilers js:babel/register --recursive test",
+    "prepublish": "npm test && npm start"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
     "path-extra": "^2.0.0"
   },
   "devDependencies": {
-    "babel": "^5.8.29"
+    "babel": "^5.8.29",
+    "mocha": "^2.3.3"
   }
 }
