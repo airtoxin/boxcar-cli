@@ -29,6 +29,7 @@
   "dependencies": {
     "boxcar-notification": "0.0.3",
     "commander": "^2.9.0",
+    "get-stdin": "^5.0.0",
     "jsonfile": "^2.2.3",
     "lodash.assign": "^3.2.0",
     "path-extra": "^2.0.0"
