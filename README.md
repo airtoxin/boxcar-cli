@@ -1,4 +1,4 @@
-# boxcar-cli
+# boxcar-cli [![Build Status](https://travis-ci.org/airtoxin/boxcar-cli.svg)](https://travis-ci.org/airtoxin/boxcar-cli)
 boxcar api notification cli tool
 
 ## Install
