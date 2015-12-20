@@ -35,10 +35,10 @@
     "get-stdin": "^5.0.0",
     "jsonfile": "^2.2.3",
     "lodash.assign": "^3.2.0",
-    "path-extra": "^2.0.0"
+    "path-extra": "^3.0.0"
   },
   "devDependencies": {
-    "babel": "^5.8.29",
+    "babel": "^6.3.13",
     "mocha": "^2.3.3"
   }
 }
