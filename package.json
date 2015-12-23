@@ -38,7 +38,7 @@
     "path-extra": "^2.0.0"
   },
   "devDependencies": {
-    "babel": "^5.8.29",
+    "babel": "^6.3.26",
     "mocha": "^2.3.3"
   }
 }
