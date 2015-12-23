@@ -7,7 +7,7 @@ import pathExt from 'path-extra';
 import assign from 'lodash.assign';
 import getStdin from 'get-stdin';
 import BoxcarNotification from 'boxcar-notification';
-import pkg from './package';
+import pkg from '../package.json';
 
 const CONFNAME = '.boxcarrc';
 
