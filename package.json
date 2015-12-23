@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/airtoxin/boxcar-cli#readme",
   "dependencies": {
-    "boxcar-notification": "0.1.0",
+    "boxcar-notification": "0.1.2",
     "commander": "^2.9.0",
     "get-stdin": "^5.0.0",
     "jsonfile": "^2.2.3",
