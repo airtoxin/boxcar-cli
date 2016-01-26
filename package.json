@@ -34,7 +34,7 @@
     "commander": "^2.9.0",
     "get-stdin": "^5.0.0",
     "jsonfile": "^2.2.3",
-    "lodash.assign": "^3.2.0",
+    "lodash.assign": "^4.0.1",
     "path-extra": "^2.0.0"
   },
   "devDependencies": {
